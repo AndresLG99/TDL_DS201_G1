@@ -1,6 +1,6 @@
 from actions.create import add_new_task, view_tasks
 from actions.menu import show_menu
-from actions.remove import remove_task
+from actions.remove import remove_tasks
 
 # FUNCTIONS
 def ask():
@@ -26,10 +26,11 @@ while on_off:
     if choice == "1":
         new_task = add_new_task()
         tasks.append(new_task)
-        print(f"'{new_task}' was added successfully")
+        print(f"Task was added successfully")
         print()
     elif choice == "2":
-        remove_task(tasks)
+        remove_tasks(tasks)
+        print(f"Task was removed successfully")
         print()
     elif choice == "3":
         view_tasks(tasks)
