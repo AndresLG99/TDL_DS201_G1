@@ -1,16 +1,12 @@
-from actions.create import view_tasks
 # REMOVE TASKS FUNCTION
 
-def remove_task(tasks):
-    if not tasks:
-        print("No tasks to remove.")
-        return
-
-    view_tasks(tasks)
-    task_to_remove = input("Enter the task to remove: ").strip()
-
-    if task_to_remove in tasks:
-        tasks.remove(task_to_remove)
-        print(f"Task '{task_to_remove}' has been removed from the list")
+def remove_tasks(tasks):
+    choice = input("Enter the task to remove: ")
+    while not choice.isnumeric():
+        choice = input("Enter the task to remove: ")
     else:
-        print("Task not found. Please input it exactly as shown.")
+        while int(choice) not in range(len(tasks)):
+            choice = input("Enter the task to remove: ")
+        else:
+            tasks.pop(int(choice) - 1)
+    return tasks
