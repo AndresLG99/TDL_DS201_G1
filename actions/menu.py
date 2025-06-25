@@ -1,4 +1,4 @@
-menu = ["Add task", "Remove task", "View tasks", "Exit"]
+menu = ["Add task", "Remove task", "View tasks", "Suggest Tasks", "Exit"]
 
 def show_menu():
     for item in range(len(menu)):

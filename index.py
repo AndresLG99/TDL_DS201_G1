@@ -2,6 +2,7 @@ from actions.create import add_new_task
 from actions.menu import show_menu
 from actions.remove import remove_tasks
 from actions.view import sort_key
+from actions.suggest_tasks import suggest_tasks
 
 # FUNCTIONS
 def ask():
@@ -38,6 +39,9 @@ while on_off:
         sort_key(tasks)
         print()
     elif choice == "4":
+        suggest_tasks(tasks)
+        print()
+    elif choice == "5":
         print("Goodbye")
         on_off = False
     else:
