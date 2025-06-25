@@ -1,6 +1,7 @@
-from actions.create import add_new_task, view_tasks
+from actions.create import add_new_task
 from actions.menu import show_menu
 from actions.remove import remove_tasks
+from actions.view import sort_key
 
 # FUNCTIONS
 def ask():
@@ -34,7 +35,7 @@ while on_off:
         print(f"Task was removed successfully")
         print()
     elif choice == "3":
-        view_tasks(tasks)
+        sort_key(tasks)
         print()
     elif choice == "4":
         print("Goodbye")
