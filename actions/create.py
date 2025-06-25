@@ -2,7 +2,7 @@ from datetime import datetime
 # ADD NEW TASKS FUNCTION
 
 def add_new_task():
-    priorities = ("LOW", "MEDIUM", "HIGH")
+    priorities = ("Low", "Medium", "High")
 
     while True:
         task_title = input("Enter new task: ").strip()
@@ -13,7 +13,7 @@ def add_new_task():
 
     while True:
         try:
-            task_priority = int(input(f"Set {task_title}'s priority: \n1) Low\n2) Medium\n3) High\n"))
+            task_priority = int(input(f"\nSet tasks's priority: \n1. Low\n2. Medium\n3. High\nEnter your choice: "))
             if task_priority in [1, 2, 3]:
                 break
             else:

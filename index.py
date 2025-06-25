@@ -17,7 +17,7 @@ def ask():
 # INITIAL VARIABLES AND LISTS
 tasks = []
 on_off = True
-priorities = ("LOW", "MEDIUM", "HIGH")
+priorities = ("Low", "Medium", "High")
 
 # APP
 while on_off:
