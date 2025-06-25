@@ -1,16 +1,16 @@
+from utils import priorities
 # VIEW SORTED TASKS
+def sort_tasks(tasks):
+    return sorted(tasks, key=lambda task: (task["deadline"], task["priority"]))
 
-priority_levels = ["LOW", "MEDIUM", "HIGH"]
+def view_tasks(tasks):
+    if len(tasks) > 0:
+        sorted_tasks = sort_tasks(tasks)
+        max_title_length = max(len(task["title"]) for task in tasks)
 
-def sort_key(task):
-    p_index = priority_levels.index(task["Priority"]) # priority index
-    y, m, d = task["Deadline"][0].split("-")    # deadline
-    m_padded = m.zfill(2)   # one-two digits  "2025-6-5" → "2025-06-25"
-    d_padded = d.zfill(2)   # one-two digits
-    ymd_str = f"{y}-{m_padded}-{d_padded}"
-    return p_index, ymd_str
-
-tasks.sort(key=sort_key)
-
-for i in range(len(tasks)):
-    print(f"{i + 1}. {tasks[i]}")
+        print(f"{"ID":<3} | {"Task":<{max_title_length}} | {"Priority":<8} | {"Deadline":<12}")
+        print("=" * (max_title_length + 30))
+        for i, task in enumerate(sorted_tasks):
+            print(f"{i+1:<3} | {task['title']:<{max_title_length}} | {priorities[task['priority']]:<8} | {task['deadline'].strftime('%Y-%m-%d'):<12}")
+    else:
+        print("Oops! No tasks were found.")

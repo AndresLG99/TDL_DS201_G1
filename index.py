@@ -1,8 +1,10 @@
 from actions.create import add_new_task
 from actions.menu import show_menu
 from actions.remove import remove_tasks
-from actions.view import sort_key
+from actions.view import view_tasks
 from actions.suggest_tasks import suggest_tasks
+from utils import priorities
+import datetime
 
 # FUNCTIONS
 def ask():
@@ -17,13 +19,27 @@ def ask():
 
 
 # INITIAL VARIABLES AND LISTS
+# TODO: Uncomment and remove test
 tasks = []
-on_off = True
-priorities = ("Low", "Medium", "High")
+#tasks = [
+#    {
+#        'title': 'Taking out the trash',
+#        'priority': 0, 'deadline': datetime.datetime(2025, 6, 27, 0, 0)
+#    },
+#    {
+#        'title': 'Doing homework',
+#        'priority': 1, 'deadline': datetime.datetime(2025, 6, 25, 0, 0)
+#    },
+#    {
+#        'title': 'Getting coffee',
+#        'priority': 0, 'deadline': datetime.datetime(2025, 6, 25, 0, 0)
+#    }
+#]
 
+on_off = True
+print("To-Do List Application")
 # APP
 while on_off:
-    print("To-Do List Application")
     show_menu()
     choice = ask()
     if choice == "1":
@@ -36,7 +52,7 @@ while on_off:
         print(f"Task was removed successfully")
         print()
     elif choice == "3":
-        sort_key(tasks)
+        view_tasks(tasks)
         print()
     elif choice == "4":
         suggest_tasks(tasks)
