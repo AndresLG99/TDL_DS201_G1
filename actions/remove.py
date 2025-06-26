@@ -1,12 +1,24 @@
+from actions.view import view_tasks, sort_tasks
 # REMOVE TASKS FUNCTION
 
 def remove_tasks(tasks):
-    choice = input("Enter the task to remove: ")
-    while not choice.isnumeric():
-        choice = input("Enter the task to remove: ")
-    else:
-        while int(choice) not in range(len(tasks)):
-            choice = input("Enter the task to remove: ")
-        else:
-            tasks.pop(int(choice) - 1)
-    return tasks
+    view_tasks(tasks)
+    sorted_tasks = sort_tasks(tasks)
+    print()
+    while True:
+        try:
+            choice = int(input(f"Enter the ID of the task to remove (1 - {len(sorted_tasks)}) / 0: Cancel \n"))
+            if choice in range(0, len(sorted_tasks)):
+                if choice == 0:
+                    print(f"Aborting")
+                    break
+                else:
+                    sorted_tasks.pop(int(choice) - 1)
+                    print(f"Task was removed successfully")
+                    break
+            else:
+                print(f"Please enter a number from 0 to {len(sorted_tasks)}.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+    return sorted_tasks
