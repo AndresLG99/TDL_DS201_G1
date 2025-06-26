@@ -3,63 +3,67 @@ from actions.menu import show_menu
 from actions.remove import remove_tasks
 from actions.view import view_tasks
 from actions.suggest_tasks import suggest_tasks
-from utils import priorities
+from art import *
 import datetime
 
 # FUNCTIONS
 def ask():
-    reply_num = False
-    while not reply_num:
-        reply = input("Enter your choice: ")
-        if reply.isnumeric():
-            return reply
-        else:
-            reply_num = False
-    return None
+    while True:
+        try:
+            reply = int(input("Enter your choice: "))
+            if reply in [1, 2, 3, 4, 5]:
+                return reply
+            else:
+                print("Please enter a number from 1 to 5.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
 
 
 # INITIAL VARIABLES AND LISTS
 # TODO: Uncomment and remove test
-tasks = []
-#tasks = [
-#    {
-#        'title': 'Taking out the trash',
-#        'priority': 0, 'deadline': datetime.datetime(2025, 6, 27, 0, 0)
-#    },
-#    {
-#        'title': 'Doing homework',
-#        'priority': 1, 'deadline': datetime.datetime(2025, 6, 25, 0, 0)
-#    },
-#    {
-#        'title': 'Getting coffee',
-#        'priority': 0, 'deadline': datetime.datetime(2025, 6, 25, 0, 0)
-#    }
-#]
+# tasks = []
+tasks = [
+    {
+        'title': 'Taking out the trash',
+        'priority': 0, 'deadline': datetime.datetime(2025, 6, 27, 0, 0)
+    },
+    {
+        'title': 'Doing homework',
+        'priority': 1, 'deadline': datetime.datetime(2025, 6, 25, 0, 0)
+    },
+    {
+        'title': 'Getting coffee',
+        'priority': 0, 'deadline': datetime.datetime(2025, 6, 25, 0, 0)
+    }
+]
 
 on_off = True
-print("To-Do List Application")
-# APP
+print("=" * 100)
+tprint("TO  DO  LIST APP")
+print("=" * 100)
+
 while on_off:
     show_menu()
     choice = ask()
-    if choice == "1":
+    print("=" * 100)
+    if choice == 1:
+        print("# ADD NEW TASK #")
+        print("=" * 100)
         new_task = add_new_task()
         tasks.append(new_task)
-        print(f"Task was added successfully")
-        print()
-    elif choice == "2":
-        remove_tasks(tasks)
-        print(f"Task was removed successfully")
-        print()
-    elif choice == "3":
+    elif choice == 2:
+        print("# REMOVE TASK #")
+        print("=" * 100)
+        tasks = remove_tasks(tasks)
+    elif choice == 3:
+        print("# VIEW TASKS #")
+        print("=" * 100)
         view_tasks(tasks)
-        print()
-    elif choice == "4":
+    elif choice == 4:
+        print("# SUGGEST TASKS #")
+        print("=" * 100)
         suggest_tasks(tasks)
-        print()
-    elif choice == "5":
-        print("Goodbye")
+    elif choice == 5:
+        tprint("BYE BYE")
         on_off = False
-    else:
-        print("Invalid choice")
-        print()
+    print("=" * 100)
