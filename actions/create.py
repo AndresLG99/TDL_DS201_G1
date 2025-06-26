@@ -13,7 +13,7 @@ def add_new_task():
 
     while True:
         try:
-            task_priority = int(input(f"\nSet tasks's priority: \n1. Low\n2. Medium\n3. High\nEnter your choice: "))
+            task_priority = int(input(f"Set task's priority: \n1. High\n2. Medium\n3. Low\nEnter your choice: "))
             if task_priority in [1, 2, 3]:
                 break
             else:
@@ -36,8 +36,10 @@ def add_new_task():
     }
 
     print("=" * 50)
-    print(new_task["title"], "//", priorities[new_task["priority"]], "//", new_task["deadline"].date())
-    print("=" * 50)
+    print("Task:", new_task["title"])
+    print("Priority:", priorities[new_task["priority"]])
+    print("Date:", new_task["deadline"].date())
+    print(f"Task was added successfully!")
 
     return new_task
 
