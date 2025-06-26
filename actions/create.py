@@ -13,7 +13,7 @@ def add_new_task():
 
     while True:
         try:
-            task_priority = int(input(f"Set tasks' priority: \n1. High\n2. Medium\n3. Low\nEnter your choice: "))
+            task_priority = int(input(f"Set task's priority: \n1. High\n2. Medium\n3. Low\nEnter your choice: "))
             if task_priority in [1, 2, 3]:
                 break
             else:

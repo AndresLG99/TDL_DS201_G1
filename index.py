@@ -4,7 +4,6 @@ from actions.remove import remove_tasks
 from actions.view import view_tasks
 from actions.suggest_tasks import suggest_tasks
 from art import *
-import datetime
 
 # FUNCTIONS
 def ask():
@@ -20,22 +19,7 @@ def ask():
 
 
 # INITIAL VARIABLES AND LISTS
-# TODO: Uncomment and remove test
-# tasks = []
-tasks = [
-    {
-        'title': 'Taking out the trash',
-        'priority': 0, 'deadline': datetime.datetime(2025, 6, 27, 0, 0)
-    },
-    {
-        'title': 'Doing homework',
-        'priority': 1, 'deadline': datetime.datetime(2025, 6, 25, 0, 0)
-    },
-    {
-        'title': 'Getting coffee',
-        'priority': 0, 'deadline': datetime.datetime(2025, 6, 25, 0, 0)
-    }
-]
+tasks = []
 
 on_off = True
 print("=" * 100)
